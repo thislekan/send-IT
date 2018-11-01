@@ -1,0 +1,152 @@
+html{
+    font-size: 10px;
+}
+body{
+    margin: 0;
+    padding: 0 1rem;
+    background-color: #e6e6fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', 'sans-serif';
+    background-image: url('../images/bikegirl.svg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+header{
+    height: 3rem;
+}
+nav{
+    position: relative;
+}
+.navigation__wrapper{
+    position: fixed;
+    padding: 1rem 0;
+    top: 0;
+    width: calc(100% - 20px);
+    display: flex;
+    justify-content: flex-end;
+}
+.navigation__wrapper div{
+    width: 100px;
+    text-align: center;
+    padding: 1rem 0;
+    background: #0000ff;
+    font-size: 1.3rem;
+    font-family: 'Roboto';
+    border: 1px solid #0000ff;
+    border-radius: .2rem;
+}
+.navigation__wrapper div a{
+    color: white;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+.body__content{
+    width: 100%;
+    height: 50vh;
+    /* padding: 1rem; */
+}
+.body__content__wrapper{
+    position: relative;
+}
+.form{
+    padding: 1rem .5rem;
+    /* background-color: #e6e6fa; */
+    background: white;
+    height: 100%;
+    border-radius: .5rem;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.input__wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: .75rem 0;
+}
+label{
+    font-size: 1.35rem;
+    font-family: 'Open Sans';
+    font-weight: 200;
+    letter-spacing: .5px;
+}
+input{
+    height: 30px;
+    padding: 1rem .5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 10px -10px rgba(0,0,0,0.3);
+    color: #6a5acd;
+    letter-spacing: .5px;
+    border-radius: .2rem;
+    margin-top: .5rem;
+    font-size: 1.4rem;
+    font-family: 'Open Sans';
+    outline: none;
+}
+button{
+    height: 35px;
+    background: #6a5acd;
+    border: 1px solid #6a5acd;
+    border-radius: .2rem;
+    color: white;
+    font-size: 1.4rem;
+    font-family: 'Roboto';
+    letter-spacing: 1px;
+    margin: 1rem 0 0 0;
+    padding: .5rem 0;
+    outline: none;
+}
+.form p{
+    margin: 1rem 0 0 0;
+    font-size: 1.4rem;
+    text-align: center;
+    white-space: pre-line;
+}
+.introduction p{
+    color: #0000ff;
+    font-weight: 600;
+    font-family: 'Roboto';
+    margin-bottom: 2rem;
+}
+.notifications{
+    position: absolute;
+    top: calc(0% + 20vh);
+    left: calc(0% + 7px);
+    background: white;
+    height: 100px;
+    width: calc(100% - 15px);
+    border: 1px solid #ea5b5b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border-radius: .2rem;
+}
+.notifications__closer{
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1px solid #b54444;
+    height: 20px;
+    width: 20px;
+    background: white;
+    color: #b54444;
+}
+@media only screen and (min-device-width: 700px){
+    .body__content{
+        padding: 0 18rem;
+    }
+}
+@media only screen and (min-device-width: 900px){
+    .body__content{
+        padding: 0 30rem;
+        height: 35vh;
+    }
+}
