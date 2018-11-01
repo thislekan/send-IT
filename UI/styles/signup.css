@@ -45,7 +45,7 @@ nav{
 }
 .body__content{
     width: 100%;
-    height: 50vh;
+    height: 65vh;
 }
 .body__content__wrapper{
     position: relative;
@@ -145,7 +145,7 @@ button{
 @media only screen and (min-device-width: 900px){
     .body__content{
         padding: 0 30rem;
-        height: 35vh;
+        height: 45vh;
     }
     label{
         font-size: 1.5rem;
