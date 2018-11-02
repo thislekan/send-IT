@@ -1,0 +1,193 @@
+html{font-size: 10px;}
+header{height: 3rem;}
+nav{position: relative;}
+body{
+    font-size: 1.4rem; 
+    font-family: 'Open Sans', 'sans-serif';
+    margin: 0;
+    padding: 0 .5rem;
+    position: relative;
+}
+p{
+    margin: 0;
+}
+button{outline: none}
+.navigation__wrapper{
+    position: fixed;
+    padding: 1rem 0;
+    top: 0;
+    width: calc(100% - 2rem);
+    display: flex;
+    justify-content: flex-end;
+}
+.introduction-div{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    background: rgba(0, 0, 255, 0.75);
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    margin: 2rem 0 0 0;
+}
+.overview{
+    border: 1px solid rgba(0, 0, 255, 0.1);
+    margin: 2rem 0;
+    border-radius: .2rem;
+}
+.overview__header{
+    border-bottom: 1px solid rgba(0, 0, 255, 0.1);
+    padding: 1rem;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #6a5acd;
+    font-weight: 200;
+}
+.current-order, .create-order{
+    border-bottom: 1px solid rgba(0, 0, 255, 0.1);
+    padding: 1rem;
+}
+.order__id{
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    letter-spacing: 1px;
+    padding: 0 0 0 .5rem;
+    border-bottom: 1px solid rgba(0, 0, 255, 0.1);
+}
+.order__id p{
+    margin: 0 0 .5rem 0;
+}
+.spaced-content{
+    height: 10rem;
+    padding: .5rem;
+    border-bottom: 1px solid rgba(0, 0, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.spaced-content p:nth-of-type(1){
+    color: #6a5acd;
+    letter-spacing: .2px;
+    font-weight: 300;
+}
+.order-manipulators{
+    height: 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+}
+.manipulators{
+    height: 35px;
+    /* font-size: 1.25rem; */
+    font-family: 'Open Sans';
+    letter-spacing: 1px;
+    border-radius: .2rem;
+}
+#cancel-order{
+    background-color: rgba(255, 40, 40, 0.88);
+    color: white;
+    border: 1px solid rgba(255, 40, 40, 0.88);
+}
+#change-location{
+    background-color: rgba(0, 0, 255, 0.75);
+    color: white;
+    border: 1px solid rgba(0,0,255, 0.75);
+}
+.input-div{
+    display: flex;
+    flex-direction: column;
+    height: 7.5rem;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+}
+.input-div label{
+    color: #6a5acd;
+    font-size: 1.3rem;
+}
+select{
+    background-color: #e6e6fa;
+    height: 3.5rem;
+    font-size: 1.3rem;
+    padding: 0 .5rem;
+    border: 1px solid #e6e6fa;
+    border-radius: .2rem;
+    box-shadow: 5px 5px 10px -10px #e6e6fa;
+    outline: none;
+}
+input{
+    height: 3.5rem;
+    border: 1px solid #e6e6fa;
+    border-radius: .2rem;
+    padding: .5rem;
+    outline: none;
+    font-size: 1.3rem;
+    letter-spacing: .5px;
+}
+.create-order__footer{
+    margin: 1rem 0;
+    text-align: right;
+}
+#new-order-btn{
+    height: 3.5rem;
+    width: 12.5rem;
+    background: rgba(0, 0, 255, 0.85);
+    border: 1px solid rgba(0, 0, 255, 0.85);
+    color: white;
+    border-radius: .2rem;
+    box-shadow: 5px 5px 10px -10px rgba(0,0,255,0.85)
+}
+.order-history{
+    border: 1px solid rgba(0, 0, 255, 0.1);
+    border-radius: .2rem;
+    padding: 1rem;
+}
+.order-history__header{
+    font-size: 1.5rem;
+    letter-spacing: .5px;
+    padding: .25rem 0;
+}
+.history-wrap{
+    border: 1px solid rgba(0, 0, 255, 0.1);
+    border-radius: .2rem;
+    box-shadow: 5px 5px 10px -10px rgba(0, 0, 255, 0.1);
+    margin: .5rem 0;
+}
+.details{
+    height: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 .5rem;
+    border-bottom: 1px solid rgba(0, 0, 255, 0.1);
+}
+.details p:nth-of-type(1){
+    color: #6a5acd;
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: .5px;
+}
+@media only screen and (min-device-width: 600px){
+    .overview__content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        padding: 1rem;
+    }
+    .spaced-content{
+        border-bottom: unset;
+    }
+    .current-order, .create-order{
+        border: 1px solid rgba(0, 0, 255, 0.1);
+        padding: 0 .5rem;
+        border-radius: .2rem;
+    }
+}
+@media only screen and (min-device-width: 900px){
+    .body__content__wrapper{
+        padding: 0 20%;
+    }
+}
