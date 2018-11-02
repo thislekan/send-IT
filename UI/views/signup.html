@@ -21,11 +21,11 @@
     </header>
     <div class="body__content">
         <div class="body__content__wrapper">
-            <div class="notifications" style="display: none;">
-                <div class="notification__closer">
+            <div class="notifications">
+                <div class="notification__closer" id="notification-box-closer">
                     <span class="fa fa-close"></span>
                 </div>
-                <p id="notify-user">This is a demo notification</p>
+                <p id="notify-user"></p>
             </div>
             <div class="form">
                 <div class="introduction">
@@ -45,7 +45,7 @@
                         <input type="password" name="confirm password" id="confirm-password">
                     </div>
                     <div class="input__wrapper">
-                        <button>Sign Up</span></button>
+                        <button id="signup-btn">Sign Up</span></button>
                     </div>
                 </div>
                 <div class="links">
@@ -60,6 +60,7 @@
             </div>
         </div>
     </div>
+    <script src="../scripts/signup.js"></script>
 </body>
 
 </html>
