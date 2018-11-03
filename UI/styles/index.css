@@ -85,13 +85,6 @@ article{
     justify-content: center;
     font-size: 1.8rem;
 }
-/* .highlite span{
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #e6e6fa;
-    border-radius: 100%;
-    margin: 0 1rem 0;
-} */
 #how-it-works, #pricing, #about-us{
     text-align: center;
 }
@@ -106,7 +99,6 @@ article{
 }
 .pricing__categories div{
     height: 25rem;
-    /* border: 1px solid; */
     margin: 1.5rem 5rem;
     padding: 1rem;
 }
@@ -127,9 +119,6 @@ article{
     height: 15rem;
     margin: 1rem 0;
 }
-/* #how-it-works .process{
-     background: #e6e6fa;
-} */
 #pricing .process div{
     color: unset;
 }
@@ -165,33 +154,26 @@ footer{
     text-align: center;
     font-size: 1.4rem;
 }
-/* .about-us__members__wrapper div{
-    width: 20rem;
-    font-size: 1.4rem;
-    font-weight: 700;
-    height: 25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
 @media only screen and (min-device-width: 600px){
     .navigation__wrapper{
         height: 3.5rem;
     }
     .introduction__wrapper{
-        position: relative;
-        padding: 0 2rem;
+        /* position: relative; */
+        align-items: baseline;
+        padding: 0 3rem;
     }
     .introduction__wrapper div:nth-of-type(1){
-        position: absolute;
+        /* position: absolute;
         top: 4.5rem;
+        left: 2.5rem;
+        width: 35rem; */
+        position: absolute;
+        top: 22.5rem;
         left: 2.5rem;
         width: 35rem;
     }
     .introduction__wrapper div:nth-of-type(2){
-        position: absolute;
-        left: 2.5rem;
         width: 35rem;
         text-align: center;
     }
@@ -214,7 +196,7 @@ footer{
 @media only screen and (min-device-width: 900px){
     .introduction__wrapper div:nth-of-type(1){
         width: 60rem;
-        top: 10.5rem;
+        top: 29.5rem;
     }
     .introduction__wrapper div:nth-of-type(2){
         bottom: 26.5rem;
@@ -242,5 +224,10 @@ footer{
     }
     .about-us__members{
         margin: 3rem 0 0 0;
+    }
+}
+@media only screen and (min-device-width: 1200px){
+    .introduction__wrapper div:nth-of-type(1){
+        top: 7.5rem;
     }
 }
