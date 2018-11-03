@@ -16,11 +16,6 @@ body{
     display: flex;
     justify-content: flex-end;
 }
-.sub-nav{
-    /* position: fixed; */
-    /* width: calc(100% - 20px); */
-    /* overflow-x: scroll; */
-}
 .sub-nav__wrapper{
     margin: 1rem 0;
     height: 6rem;
