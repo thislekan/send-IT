@@ -143,15 +143,15 @@ select, input{
     outline: none;
 }
 .change-status{
-    background: #6a5acd;
-    border: 1px solid #6a5acd;
-    box-shadow: 1px 1px 3px -1px #6a5acd;
+    background: #82818c;
+    border: 1px solid #82818c;
+    box-shadow: 1px 1px 3px -1px #82818c;
 }
 .change-location{
-    background: #add836;
-    color: #2b1919;
-    border: 1px solid #add836;
-    box-shadow: 1px 1px 3px -2px #add836;
+    background: #0000ff;
+    /* color: #2b1919; */
+    border: 1px solid #0000ff;
+    box-shadow: 1px 1px 3px -2px #0000ff;
 }
 #confirm-changes-div{
     text-align: center;
