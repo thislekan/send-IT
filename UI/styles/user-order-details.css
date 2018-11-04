@@ -38,6 +38,11 @@ body{
 }
 .sub-nav__wrapper div{
     cursor: pointer;
+    height: 100%;
+    flex-grow: .5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sub-nav p{
     margin: 0;

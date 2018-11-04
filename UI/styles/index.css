@@ -203,6 +203,7 @@ footer{
         width: 60rem;
         margin: -5rem 0;
         text-align: unset;
+        position: absolute;
     }
     .introduction__wrapper h1{
         font-size: 5.5rem;
