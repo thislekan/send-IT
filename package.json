@@ -1,0 +1,26 @@
+{
+  "name": "send-it",
+  "version": "1.0.0",
+  "description": "A courier service platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thislekan/send-IT.git"
+  },
+  "author": "thislekan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thislekan/send-IT/issues"
+  },
+  "homepage": "https://github.com/thislekan/send-IT#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.1.0"
+  }
+}
