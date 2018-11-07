@@ -1,0 +1,234 @@
+html{
+    font-size: 10px;
+}
+body{
+    margin: 0;
+    /* padding: 0 10px; */
+    font-size: 1.3rem;
+    font-family: 'Open Sans';
+}
+header{
+    height: 5rem;
+}
+nav{
+    position: relative;
+}
+.navigation__wrapper{
+    position: fixed;
+    padding: 1rem 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    box-shadow: 3px 6px 1px -7px #03030a;
+    background-color: white;
+    z-index: 3;
+}
+.navigation__wrapper a{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #6a5acd;
+    font-weight: 500;
+}
+article{
+    margin: -1.5rem 0;
+}
+/* #introduction{
+    background-color: #6a5acd;
+} */
+.introduction__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 3.5rem);
+    background-image: url('../images/walk.svg');
+    background-size: cover;
+    background-position: center;
+    padding: 0 1rem;
+    /* background-color: #6a5acd; */
+}
+.introduction__wrapper h1{
+    font-size: 2.8rem;
+    font-weight: 900;
+    white-space: pre-line;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+    /* color: #000000; */
+}
+.introduction__wrapper p{
+    font-size: 1.6rem;
+    letter-spacing: .5px;
+    color: white;
+    text-align: center;
+    padding: 0 0 0 2.5rem;
+}
+#introduction button{
+    height: 5rem;
+    width: 16rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    background-color: #503bff;
+    border: 1px solid #503bff;
+    margin: 5rem 0 0 0;
+    border-radius: .2rem;
+    box-shadow: 5px 5px 10px -8px #0000ff;
+    outline: none;
+}
+.highlite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+#how-it-works, #pricing, #about-us{
+    text-align: center;
+}
+.about-us__members{
+    overflow-x: scroll;
+}
+.about-us__members__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50rem;
+}
+.pricing__categories div{
+    height: 25rem;
+    margin: 1.5rem 5rem;
+    padding: 1rem;
+}
+.process{
+    padding: 2.5rem;
+}
+.process div{
+    font-size: 1.5rem;
+    margin: 3rem 0;
+    border: 1px solid rgba(106, 90, 205, 0.1);
+    border-radius: .2rem;
+    padding: 1rem .5rem;
+    box-shadow: 5px 5px 5px -6px rgba(106,90,205,0.1);
+    color: #6a5acd;
+    background-color: white;
+}
+.process img{
+    height: 15rem;
+    margin: 1rem 0;
+}
+#pricing .process div{
+    color: unset;
+}
+#about-us{
+    background: #e6e6fa;
+    height: 65vh;
+}
+#about-us h5{
+    color: #0d0d58;
+    font-size: 1.75rem;
+}
+.about-us__wrapper{
+    padding: 0 1.5rem;
+}
+.about-us__members__wrapper img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 100%;
+    border: 1px solid #e6e6fa;
+    object-fit: cover;
+    object-position: center;
+}
+footer{
+    height: 40vh;
+    background: #080838;
+    color: white;
+    padding: 2rem;
+    margin: 3rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
+}
+@media only screen and (min-device-width: 600px){
+    .navigation__wrapper{
+        height: 3.5rem;
+    }
+    .introduction__wrapper{
+        /* position: relative; */
+        align-items: baseline;
+        padding: 0 3rem;
+    }
+    .introduction__wrapper div:nth-of-type(1){
+        /* position: absolute;
+        top: 4.5rem;
+        left: 2.5rem;
+        width: 35rem; */
+        position: absolute;
+        top: 22.5rem;
+        left: 2.5rem;
+        width: 35rem;
+    }
+    .introduction__wrapper div:nth-of-type(2){
+        width: 35rem;
+        text-align: center;
+    }
+    .introduction__wrapper p, .introduction__wrapper h1{
+        color: #131352;
+    }
+    .process{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+        padding: 0 3rem;
+    }
+    #about-us{
+        height: 45vh;
+    }
+    .about-us__members__wrapper{
+        width: unset;
+    }
+}
+@media only screen and (min-device-width: 900px){
+    .introduction__wrapper div:nth-of-type(1){
+        width: 60rem;
+        top: 29.5rem;
+    }
+    .introduction__wrapper div:nth-of-type(2){
+        bottom: 26.5rem;
+        width: 60rem;
+        margin: -5rem 0;
+        text-align: unset;
+        position: absolute;
+    }
+    .introduction__wrapper h1{
+        font-size: 5.5rem;
+    text-align: unset;
+    }
+    .introduction__wrapper p{
+        font-size: 2.3rem;
+    text-align: unset;
+    padding: unset;
+    letter-spacing: 1px;
+    }
+    #introduction button{
+        height: 6rem;
+    width: 23rem;
+    font-size: 2rem;
+    }
+    .process, .about-us__wrapper{
+        padding: 0 10rem;
+    }
+    .about-us__members{
+        margin: 3rem 0 0 0;
+    }
+}
+@media only screen and (min-device-width: 1200px){
+    .introduction__wrapper div:nth-of-type(1){
+        top: 7.5rem;
+    }
+}
