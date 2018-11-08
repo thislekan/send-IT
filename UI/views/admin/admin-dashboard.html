@@ -1,0 +1,220 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Send-IT || Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/admin-dashboard.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navigation__wrapper">
+                <div><a href="../../../index.html">Log Out</a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="body">
+        <div class="introduction-div">
+            <p>Welcome back, Admin.</p>
+        </div>
+        <div class="body__content">
+            <div class="notification-box">
+                <div id="status-notification">
+                    <div class="closer">
+                        <span class="fa fa-close"></span>
+                    </div>
+                    <div class="content">
+                        <label for="change status">Please select a status below</label>
+                        <select name="change status" id="status-select">
+                            <option value="transit">In transit</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="location-notification">
+                    <div class="closer">
+                        <span class="fa fa-close"></span>
+                    </div>
+                    <div class="content">
+                        <div>
+                            <label for="for location">Please select a city below</label>
+                            <select name="for loaction" id="city-select">
+                                <option value="">Please select a city</option>
+                                <option value="lagos">Lagos</option>
+                                <option value="abuja">Abuja</option>
+                                <option value="kano">Kano</option>
+                                <option value="port-harcourt">Port-Harcourt</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="exact address">Please enter the the exact address</label>
+                            <input type="text" name="exact address" id="exact-address">
+                        </div>
+                    </div>
+                </div>
+                <div id="confirm-changes-div">
+                    <button data-action="confirm" id="confirm-changes">Confirm</button>
+                </div>
+            </div>
+            <div class="order-history">
+                <div class="order-history__header">
+                    <p>There are <span>534</span> new orders</p>
+                </div>
+                <div class="order-history__wrapper">
+                    <div class="order-history__content">
+                        <div class="history-wrap">
+                            <div>
+                                <div class="order-history__order-date details">
+                                    <p>Order date</p>
+                                    <p id="date-of-order">13th February</p>
+                                </div>
+                                <div class="order-history__order-id details">
+                                    <p>Order ID</p>
+                                    <p id="id_for_order_history">LO768HB</p>
+                                </div>
+                                <div class="order-history__order-price-and-status details">
+                                    <p>Order Price</p>
+                                    <p id="order_history_order-price">₦1500</p>
+                                </div>
+                                <div class="order-history__order-location details">
+                                    <p>Order Location</p>
+                                    <p id="order-history__order-location">Yaba Angelica Ladugbe Ilkihdn nigban uoe</p>
+                                </div>
+                                <div class="order-history__order-status details">
+                                    <p>Order Status</p>
+                                    <p id="order-history__order-status">In transit</p>
+                                </div>
+                                <div class="btn-section">
+                                    <button data-action="change-status" class="change-status">Change Status</button>
+                                    <button data-action="change-loaction" class="change-location">Change Location</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-wrap">
+                            <div>
+                                <div class="order-history__order-date details">
+                                    <p>Order date</p>
+                                    <p id="date-of-order">13th February</p>
+                                </div>
+                                <div class="order-history__order-id details">
+                                    <p>Order ID</p>
+                                    <p id="id_for_order_history">LO768HB</p>
+                                </div>
+                                <div class="order-history__order-price-and-status details">
+                                    <p>Order Price</p>
+                                    <p id="order_history_order-price">₦1500</p>
+                                </div>
+                                <div class="order-history__order-location details">
+                                    <p>Order Location</p>
+                                    <p id="order-history__order-location">Yaba Angelica Ladugbe Ilkihdn nigban uoe</p>
+                                </div>
+                                <div class="order-history__order-status details">
+                                    <p>Order Status</p>
+                                    <p id="order-history__order-status">In transit</p>
+                                </div>
+                                <div class="btn-section">
+                                    <button data-action="change-status" class="change-status">Change Status</button>
+                                    <button data-action="change-loaction" class="change-location">Change Location</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-wrap">
+                            <div>
+                                <div class="order-history__order-date details">
+                                    <p>Order date</p>
+                                    <p id="date-of-order">13th February</p>
+                                </div>
+                                <div class="order-history__order-id details">
+                                    <p>Order ID</p>
+                                    <p id="id_for_order_history">LO768HB</p>
+                                </div>
+                                <div class="order-history__order-price-and-status details">
+                                    <p>Order Price</p>
+                                    <p id="order_history_order-price">₦1500</p>
+                                </div>
+                                <div class="order-history__order-location details">
+                                    <p>Order Location</p>
+                                    <p id="order-history__order-location">Yaba Angelica Ladugbe Ilkihdn nigban uoe</p>
+                                </div>
+                                <div class="order-history__order-status details">
+                                    <p>Order Status</p>
+                                    <p id="order-history__order-status">In transit</p>
+                                </div>
+                                <div class="btn-section">
+                                    <button data-action="change-status" class="change-status">Change Status</button>
+                                    <button data-action="change-loaction" class="change-location">Change Location</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-wrap">
+                            <div>
+                                <div class="order-history__order-date details">
+                                    <p>Order date</p>
+                                    <p id="date-of-order">13th February</p>
+                                </div>
+                                <div class="order-history__order-id details">
+                                    <p>Order ID</p>
+                                    <p id="id_for_order_history">LO768HB</p>
+                                </div>
+                                <div class="order-history__order-price-and-status details">
+                                    <p>Order Price</p>
+                                    <p id="order_history_order-price">₦1500</p>
+                                </div>
+                                <div class="order-history__order-location details">
+                                    <p>Order Location</p>
+                                    <p id="order-history__order-location">Yaba Angelica Ladugbe Ilkihdn nigban uoe</p>
+                                </div>
+                                <div class="order-history__order-status details">
+                                    <p>Order Status</p>
+                                    <p id="order-history__order-status">In transit</p>
+                                </div>
+                                <div class="btn-section">
+                                    <button data-action="change-status" class="change-status">Change Status</button>
+                                    <button data-action="change-loaction" class="change-location">Change Location</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-wrap">
+                            <div>
+                                <div class="order-history__order-date details">
+                                    <p>Order date</p>
+                                    <p id="date-of-order">13th February</p>
+                                </div>
+                                <div class="order-history__order-id details">
+                                    <p>Order ID</p>
+                                    <p id="id_for_order_history">LO768HB</p>
+                                </div>
+                                <div class="order-history__order-price-and-status details">
+                                    <p>Order Price</p>
+                                    <p id="order_history_order-price">₦1500</p>
+                                </div>
+                                <div class="order-history__order-location details">
+                                    <p>Order Location</p>
+                                    <p id="order-history__order-location">Yaba Angelica Ladugbe Ilkihdn nigban uoe</p>
+                                </div>
+                                <div class="order-history__order-status details">
+                                    <p>Order Status</p>
+                                    <p id="order-history__order-status">In transit</p>
+                                </div>
+                                <div class="btn-section">
+                                    <button data-action="change-status" class="change-status">Change Status</button>
+                                    <button data-action="change-loaction" class="change-location">Change Location</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reade-more"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../scripts/admin-dashboard.js"></script>
+</body>
+
+</html>
