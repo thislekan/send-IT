@@ -1,6 +1,6 @@
 const store = {
-  user: [],
+  users: [],
   parcels: [],
 };
 
-export { store as default };
+export default store;

@@ -13,66 +13,92 @@ class Order {
 
 export default {
   createParcel: (req, res) => {
-    // console.log(req.headers);
     const { userid } = req.headers;
     const query = req.body;
     const parcelID = idGenerator();
     const newOrder = new Order(parcelID, query.pickup, query.destination, userid);
 
-    if (store.user.length > 0) {
-      for (let i = 0; i < store.user.length; i += 1) {
-        const element = store.user[i];
-        // console.log(element);
-        // console.log(userid);
-        if (element.id === userid) {
-          element.order.unshift(newOrder);
-          store.parcels.unshift(newOrder);
-          res.status(201).send(newOrder);
-        } else {
-          res.status(400).send({ error: 'User does not exist.' });
-        }
+    if (store.users.length > 0) {
+      const foundUser = store.users.find(element => element.id === userid);
+      if (!foundUser) {
+        res.status(400).send({ error: 'User does not exist.' });
+      } else {
+        foundUser.orders.unshift(newOrder);
+        store.parcels.unshift(newOrder);
+
+        res.status(201).send(newOrder);
       }
     } else {
-      res.status(401).send({ error: 'User not authorized to create parcel. Please sign up.' });
+      res.status(401).send({
+        error: 'User not authorized to create parcel. Please sign up.',
+      });
     }
   },
   getAllParcels: (req, res) => {
-    // const userid = req.headers;
     if (store.parcels.length < 1) {
       res.status(404).send({ error: 'No parcel record found.' });
     } else {
-      console.log(store.parcels);
       const allParcels = store.parcels;
       res.status(200).send(allParcels);
     }
   },
   getParcelsById: (req, res) => {
-    const query = req.params.id;
-    if (store.parcels.length < 1) {
+    const query = req.params.parcelId;
+
+    if (!store.parcels.length) {
       res.status(404).send({ error: 'No parcel record exist in Database' });
     } else {
-      for (let i = 0; i < store.parcels.length; i += 1) {
-        const element = store.parcels[i];
-        if (element.id === query) {
-          res.status(200).send(element);
-        }
+      const foundParcel = store.parcels.find(element => element.id === query);
+
+      if (!foundParcel) {
+        res.status(404).send({ error: `Parcel with ID: ${query} not found` });
+      } else {
+        res.status(200).send(foundParcel);
       }
-      res.status(404).send({ error: `Parcel with ID: ${query} not found` });
     }
   },
   getUserParcels: (req, res) => {
-    const query = req.params.userid;
+    const query = req.params.userId;
 
-    if (store.user.length < 1) {
+    if (store.users.length < 1) {
       res.status(404).send({ error: 'No parcel record exist on the Database yet.' });
     } else {
-      for (let i = 0; i < store.user.length; i += 1) {
-        const element = store.user[i];
-        if (element.id === query) {
-          res.status(200).send(element.order);
-        }
+      const foundUser = store.users.find(element => element.id === query);
+
+      if (!foundUser) {
+        res.status(404).send({ error: 'No parcel record for the user exist' });
+      } else {
+        res.status(200).send(foundUser.orders);
       }
-      res.status(404).send({ error: 'No parcel record for the user exist' });
+    }
+  },
+  cancelParcel: (req, res) => {
+    const { parcelId } = req.params;
+    const { userid } = req.headers;
+
+    if (!store.parcels.length) {
+      res.status(404).send({ error: 'No parcel record exist on the Database yet.' });
+    } else {
+      const foundParcel = store.parcels.find(element => element.id === parcelId);
+      const foundUser = store.users.find(element => element.id === userid);
+
+      if (!foundParcel) {
+        res.status(404).send({ error: `No parcel with ID: ${parcelId} was found` });
+      }
+
+      if (foundParcel.user !== userid) {
+        res.status(401).send({ error: 'You are not authorized to change this parcel' });
+      } else {
+        const indexOfParcelForUser = foundUser.orders.indexOf(foundParcel);
+        const indexOfParcelForParcels = store.parcels.indexOf(foundParcel);
+
+        const canceledParcel = foundUser.orders[indexOfParcelForUser];
+
+        foundUser.orders.splice(indexOfParcelForUser, 1);
+        store.parcels.splice(indexOfParcelForParcels, 1);
+
+        res.send({ message: 'Parcel succefully canceled', parcel: canceledParcel });
+      }
     }
   },
 };

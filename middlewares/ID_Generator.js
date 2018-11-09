@@ -8,4 +8,4 @@ const idGenerator = () => {
   return text;
 };
 
-export { idGenerator as default };
+export default idGenerator;

@@ -1,30 +1,27 @@
 /* eslint-disable no-console */
 import express from 'express';
-// import authenticate from '../controllers/authenticate';
+import authorizeUser from '../middlewares/authorizeUser';
 import userHandler from '../controllers/userHandler';
 import parcelHandler from '../controllers/parcelHandler';
 
 const app = express.Router();
+app.route('/api/v1/user/create')
+  .post(authorizeUser, userHandler.createUser);
 
-// app.route('/parcel')
-//   .get(authenticate);
-
-app.route('/create-user')
-  .post(userHandler.confirmUser, userHandler.createUser);
-
-app.route('/login')
+app.route('/api/v1/user/login')
   .post(userHandler.logUserIn);
 
-app.route('/parcels')
-  .post(parcelHandler.createParcel);
-
-app.route('/parcels')
+app.route('/api/v1/parcels')
+  .post(parcelHandler.createParcel)
   .get(parcelHandler.getAllParcels);
 
-app.route('/parcels/:id')
+app.route('/api/v1/parcels/:parcelId')
   .get(parcelHandler.getParcelsById);
 
-app.route('/users/:userid/parcels')
+app.route('/api/v1/users/:userId/parcels')
   .get(parcelHandler.getUserParcels);
 
-export { app as default };
+app.route('/api/v1/parcels/:parcelId/cancel')
+  .put(parcelHandler.cancelParcel);
+
+export default app;
