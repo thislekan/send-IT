@@ -1,43 +1,65 @@
-// import expect from 'expect';
-// import request from 'supertest';
-// import describe from 'mocha';
-// import chai from 'chai';
-// import request from 'supertest';
+// import supertest from 'supertest';
+// import { expect } from 'chai';
 // import app from '../app';
-// import store from '../db/store';
 
-// import assert from 'assert';
+// process.env.NODE_ENV = 'test';
 
-// var assert = require('assert');
-// describe('Array', () => {
-//   describe('#indexOf()', () => {
-//     it('should return -1 when the value is not present', () => {
-//       assert.equal([1, 2, 3].indexOf(4), -1);
-//     });
-//   });
+// const request = supertest(app);
+// const apiVersion = '/api/v1/';
+
+// describe('Home route', () => {
+//   it('Should return a proper welcome message')
 // });
 
-// const {assert} = chai.assert;
-// const {expect} = chai.expect;
-// const {should} = chai.should;
-
-// describe('GET /', () => {
-//   it('Should welcome the user', (done) => {
+// describe('Visiting the homepage', () => {
+//   it('Welcomes the user with a message', () => {
 //     request(app)
 //       .get('/')
 //       .expect(200)
-//       .end(done);
+//       .expect((res) => {
+//         expect(res.body.message === 'Welcome to the send-IT service. Navigate to /user/create or /user/login to get authenticated and start sending orders');
+//       });
 //   });
 // });
 
-import request from 'supertest';
-import app from '../server';
+// describe('Creating a user account', () => {
+//   it('Should create an account with the provided details', () => {
+//     const email = 'abc@email.com';
+//     const password = '123456';
+//     request(app)
+//       .post(`${apiVersion}user/create`)
+//       .send({ email, password })
+//       .expect(201)
+//       .expect((res) => {
+//         expect(res.email === email);
+//       });
+//   });
+// });
 
-// console.log(app);
+// describe('Creating a user account with invalid email', () => {
+//   it('Should return an error', () => {
+//     const email = 'abcemail';
+//     const password = '123456';
+//     request(app)
+//       .post(`${apiVersion}user/create`)
+//       .send({ email, password })
+//       .expect(400)
+//       .expect((res) => {
+//         expect(res.error).toBeTruthy();
+//       });
+//   });
+// });
 
-describe('homepage', () => {
-  it('welcomes the user', (done) => {
-    request(app).get('/')
-      .expect(200, done);
-  });
-});
+// describe('Creating a user account with short password', () => {
+//   it('Should return an error', () => {
+//     const email = 'abc@email.com';
+//     const password = '12345';
+//     request(app)
+//       .post(`${apiVersion}user/create`)
+//       .send({ email, password })
+//       .expect(201)
+//       .expect((res) => {
+//         expect(res.error).toContain();
+//       });
+//   });
+// });
