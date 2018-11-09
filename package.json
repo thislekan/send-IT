@@ -4,7 +4,7 @@
   "description": "A courier service platform",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage --forceExit",
     "start": "babel-watch server.js"
   },
   "repository": {
@@ -29,9 +29,11 @@
     "@babel/preset-env": "^7.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.7",
+    "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "expect": "^23.6.0",
     "jest": "^23.6.0",
     "supertest": "^3.3.0"
   }
