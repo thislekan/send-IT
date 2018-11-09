@@ -2,7 +2,7 @@
 import server from './app';
 
 server.get('/', (req, res) => {
-  res.json({
+  res.status(200).json({
     message: 'Welcome to the send-IT service. Navigate to /user/create or /user/login to get authenticated and start sending orders',
   });
 });
