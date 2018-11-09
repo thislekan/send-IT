@@ -1,26 +1,39 @@
-// import supertest from 'supertest';
-// import { expect } from 'chai';
-// import app from '../app';
+import supertest from 'supertest';
+import { expect } from 'chai';
+import app from '../app';
 
-// process.env.NODE_ENV = 'test';
+process.env.NODE_ENV = 'test';
 
-// const request = supertest(app);
-// const apiVersion = '/api/v1/';
+const request = supertest(app);
+const apiVersion = '/api/v1/';
 
-// describe('Home route', () => {
-//   it('Should return a proper welcome message')
-// });
+describe('Home route', () => {
+  it('Should return a proper welcome message', (done) => {
+    request.get('/')
+      .end((error, response) => {
+        expect(response.status).to.equal(200);
+        expect(typeof (response.body.message)).to.equal('string');
+        expect(response.body.message).to.equal('Welcome to the send-IT service.');
+        done();
+      });
+  });
+});
 
-// describe('Visiting the homepage', () => {
-//   it('Welcomes the user with a message', () => {
-//     request(app)
-//       .get('/')
-//       .expect(200)
-//       .expect((res) => {
-//         expect(res.body.message === 'Welcome to the send-IT service. Navigate to /user/create or /user/login to get authenticated and start sending orders');
-//       });
-//   });
-// });
+describe('Create user', () => {
+  it('Should create a user', (done) => {
+    const email = 'abc@email.com';
+    const passowrd = 'abcdef';
+    request.post(`${apiVersion}user/create`)
+      .send({ email, passowrd })
+      .end((error, response) => {
+        expect(response.status).to.equal(200);
+        expect(typeof (response.body.email)).to.equal('string');
+        expect(response.body.email).to.equal(email);
+        done();
+      });
+  });
+});
+
 
 // describe('Creating a user account', () => {
 //   it('Should create an account with the provided details', () => {
