@@ -33,8 +33,6 @@
     "eslint": "^5.8.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "expect": "^23.6.0",
-    "jest": "^23.6.0",
     "supertest": "^3.3.0"
   }
 }
