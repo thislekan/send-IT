@@ -6,8 +6,8 @@
   "scripts": {
     "test": "node_modules/mocha/bin/mocha --require babel-core/register",
     "start": "babel-watch server/server.js || true",
-    "build": "babel . --ignore node_modules,server/build --out-dir build",
-    "start:prod": "node server/build/server.js",
+    "build": "babel . --ignore node_modules,build --out-dir build",
+    "start:prod": "node build/server.js",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
