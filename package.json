@@ -9,7 +9,7 @@
     "build": "babel . --ignore node_modules,build --out-dir build",
     "start:prod": "node build/server/server.js",
     "heroku-postbuild": "npm run build",
-    "cover": "istanbul cover _mocha --require babel-core/register",
+    "cover": "istanbul cover _mocha --require babel-core/register test/",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
