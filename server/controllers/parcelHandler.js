@@ -13,27 +13,29 @@ class Order {
 
 export default {
   createParcel: (req, res) => {
-    const { userid } = req.headers;
-    const query = req.body;
+    const { body, headers } = req;
+    const { userid } = headers;
+    const { pickup, destination } = body;
     const parcelID = idGenerator();
-    const newOrder = new Order(parcelID, query.pickup, query.destination, userid);
+    const newOrder = new Order(parcelID, pickup, destination, userid);
 
-    if (store.users.length > 0) {
-      const foundUser = store.users.find(element => element.id === userid);
-      if (!foundUser) {
-        return res.status(400).send({ error: 'User does not exist.' });
-      }
-      foundUser.orders.unshift(newOrder);
-      store.parcels.unshift(newOrder);
-
-      return res.status(201).send(newOrder);
+    if (!store.users.length) {
+      return res.status(401).send({
+        error: 'User not authorized to create parcel. Please sign up.',
+      });
     }
-    return res.status(401).send({
-      error: 'User not authorized to create parcel. Please sign up.',
-    });
+
+    const foundUser = store.users.find(element => element.id === userid);
+    if (!foundUser) {
+      return res.status(400).send({ error: 'User does not exist.' });
+    }
+    foundUser.orders.unshift(newOrder);
+    store.parcels.unshift(newOrder);
+
+    return res.status(201).send(newOrder);
   },
   getAllParcels: (req, res) => {
-    if (store.parcels.length < 1) {
+    if (!store.parcels.length) {
       return res.status(404).send({ error: 'No parcel record found.' });
     }
     const allParcels = store.parcels;
@@ -54,7 +56,7 @@ export default {
   getUserParcels: (req, res) => {
     const query = req.params.userId;
 
-    if (store.users.length < 1) {
+    if (!store.users.length) {
       return res.status(404).send({ error: 'No parcel record exist on the Database yet.' });
     }
 
