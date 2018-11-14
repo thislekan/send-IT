@@ -21,17 +21,71 @@ describe('Home route', () => {
   });
 });
 
-describe('Create user', () => {
-  it('Should create a user', (done) => {
-    const email = 'abc@email.com';
-    const password = 'abcdef';
+describe('Log in user before creating account', () => {
+  it('Should return an error', (done) => {
+    const email = 'email@user.com';
+    const password = 'hfreyuer';
+    request.post(`${apiVersion}user/login`)
+      .send({ email, password })
+      .end((error, response) => {
+        expect(response.status).to.equal(404);
+        expect(typeof (response.body.error)).to.equal('string');
+        expect(response.body.error).to.equal('Login credentials not found. please sign up');
+        done();
+      });
+  });
+});
+
+describe('Create Parcel Order before user is created', () => {
+  it('Should return an error', (done) => {
+    const pickup = 'somolu';
+    const destination = 'yaba';
+    request.post(`${apiVersion}parcels`)
+      .send({ pickup, destination })
+      .end((error, response) => {
+        expect(response.status).to.equal(401);
+        expect(typeof (response.body)).to.equal('object');
+        expect(response.body.error).to.equal('User not authorized to create parcel. Please sign up.');
+        done();
+      });
+  });
+});
+
+describe('Get user parcels before user is created', () => {
+  it('Should return an error', (done) => {
+    request.get(`${apiVersion}users/${userid}/parcels`)
+      .end((error, response) => {
+        expect(response.status).to.equal(404);
+        expect(typeof (response.body)).to.equal('object');
+        expect(response.body.error).to.equal('No parcel record exist on the Database yet.');
+        done();
+      });
+  });
+});
+
+describe('Cancel user parcel before parcel is created', () => {
+  it('Should return an error', (done) => {
+    request.put(`${apiVersion}parcels/${parcelId}/cancel`)
+      .end((error, response) => {
+        expect(response.status).to.equal(404);
+        expect(typeof (response.body)).to.equal('object');
+        expect(response.body.error)
+          .to.equal('No parcel record exist on the Database yet.');
+        done();
+      });
+  });
+});
+
+describe('Create user without email and password', () => {
+  it('Should return an error', (done) => {
+    const email = '';
+    const password = '';
     request.post(`${apiVersion}user/create`)
       .send({ email, password })
       .end((error, response) => {
-        userid = response.body.id;
-        expect(response.status).to.equal(201);
-        expect(typeof (response.body.email)).to.equal('string');
-        expect(response.body.email).to.equal(email);
+        expect(response.status).to.equal(400);
+        expect(typeof (response.body.error)).to.equal('string');
+        expect(response.body.error).to.equal('Email and password are required.');
         done();
       });
   });
@@ -62,6 +116,37 @@ describe('Creating user with invalid password length', () => {
         expect(response.status).to.equal(400);
         expect(typeof (response.body.error)).to.equal('string');
         expect(response.body.error).to.equal('The password needs to be 6 or more characters');
+        done();
+      });
+  });
+});
+
+describe('Create user', () => {
+  it('Should create a user', (done) => {
+    const email = 'abc@email.com';
+    const password = 'abcdef';
+    request.post(`${apiVersion}user/create`)
+      .send({ email, password })
+      .end((error, response) => {
+        userid = response.body.id;
+        expect(response.status).to.equal(201);
+        expect(typeof (response.body.email)).to.equal('string');
+        expect(response.body.email).to.equal(email);
+        done();
+      });
+  });
+});
+
+describe('Create user with already existing email', () => {
+  it('Should return an error', (done) => {
+    const email = 'abc@email.com';
+    const password = 'urehreb';
+    request.post(`${apiVersion}user/create`)
+      .send({ email, password })
+      .end((error, response) => {
+        expect(response.status).to.equal(403);
+        expect(typeof (response.body.error)).to.equal('string');
+        expect(response.body.error).to.equal('The user already exist.');
         done();
       });
   });
@@ -112,6 +197,46 @@ describe('Log in user with wrong password', () => {
   });
 });
 
+describe('Log in user without email or password', () => {
+  it('Should return an error', (done) => {
+    const email = '';
+    const password = '';
+    request.post(`${apiVersion}user/login`)
+      .send({ email, password })
+      .end((error, response) => {
+        expect(response.status).to.equal(400);
+        expect(typeof (response.body.error)).to.equal('string');
+        expect(response.body.error).to.equal('Password and Email required to log in.');
+        done();
+      });
+  });
+});
+
+describe('Get all parcel before parcel is created', () => {
+  it('Should return an error', (done) => {
+    request.get(`${apiVersion}parcels/`)
+      .end((error, response) => {
+        expect(response.status).to.equal(404);
+        expect(typeof (response.body)).to.equal('object');
+        expect(response.body.error).to.be.equal('No parcel record found.');
+        done();
+      });
+  });
+});
+
+describe('Get parcel by Id before parcel is created', () => {
+  it('Should return an error', (done) => {
+    request.get(`${apiVersion}parcels/${parcelId}`)
+      .end((error, response) => {
+        expect(response.status).to.equal(404);
+        expect(typeof (response.body)).to.equal('object');
+        expect(response.body.error).to.equal('No parcel record exist in Database');
+        done();
+      });
+  });
+});
+
+
 describe('Creates Parcel Order', () => {
   it('Should create a parcel order', (done) => {
     const pickup = 'somolu';
@@ -156,7 +281,7 @@ describe('Get all parcel', () => {
   });
 });
 
-describe('Get parcels by Id', () => {
+describe('Get parcel by Id', () => {
   it('Should return a specific parcel', (done) => {
     request.get(`${apiVersion}parcels/${parcelId}`)
       .end((error, response) => {
